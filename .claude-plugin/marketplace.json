@@ -1,5 +1,5 @@
 {
-  "name": "namioto-lab",
+  "name": "claude-plugin-lab",
   "owner": { "name": "namioto" },
   "metadata": {
     "description": "Experimental Claude Code plugin lab by namioto"

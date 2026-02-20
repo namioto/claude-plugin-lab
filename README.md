@@ -22,8 +22,8 @@ Claude Code의 플러그인 시스템을 실험하고 커스텀 확장을 공유
 마켓플레이스 추가 후 `/plugin` UI에서 선택하거나 직접 설치:
 
 ```
-/plugin install hello-world@namioto-lab
-/plugin install commit-helper@namioto-lab
+/plugin install hello-world@claude-plugin-lab
+/plugin install commit-helper@claude-plugin-lab
 ```
 
 ## 사용법

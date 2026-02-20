@@ -6,7 +6,7 @@ Claude Code 플러그인 구조를 시연하는 최소한의 에이전트 예시
 
 ```
 /plugin marketplace add namioto/claude-plugin-lab
-/plugin install hello-world@namioto-lab
+/plugin install hello-world@claude-plugin-lab
 ```
 
 ## 사용법
