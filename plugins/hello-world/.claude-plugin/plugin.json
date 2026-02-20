@@ -1,0 +1,6 @@
+{
+  "name": "hello-world",
+  "description": "최소한의 에이전트 예시",
+  "version": "0.1.0",
+  "author": { "name": "namioto" }
+}

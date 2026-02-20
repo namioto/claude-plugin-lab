@@ -1,0 +1,53 @@
+name: Validate Plugins
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace.json
+        run: |
+          python3 -c "
+          import json, sys, os
+
+          # marketplace.json 검증
+          with open('.claude-plugin/marketplace.json') as f:
+              marketplace = json.load(f)
+
+          required_keys = ['name', 'owner', 'plugins']
+          for key in required_keys:
+              assert key in marketplace, f'Missing key in marketplace.json: {key}'
+
+          print(f'marketplace.json OK: {len(marketplace[\"plugins\"])} plugins')
+
+          # 각 플러그인 plugin.json 검증
+          for plugin in marketplace['plugins']:
+              source = plugin['source']
+              plugin_json_path = os.path.join(source, '.claude-plugin', 'plugin.json')
+              # ./plugins/xxx -> plugins/xxx
+              plugin_json_path = plugin_json_path.lstrip('./')
+
+              with open(plugin_json_path) as f:
+                  plugin_meta = json.load(f)
+
+              required_plugin_keys = ['name', 'description', 'version']
+              for key in required_plugin_keys:
+                  assert key in plugin_meta, f'Missing key in {plugin_json_path}: {key}'
+
+              print(f'  plugin.json OK: {plugin_meta[\"name\"]} v{plugin_meta[\"version\"]}')
+
+          print('All validations passed!')
+          "
+
+      - name: Check JSON syntax (all json files)
+        run: |
+          find . -name "*.json" -not -path "./.git/*" | while read f; do
+            python3 -m json.tool "$f" > /dev/null && echo "OK: $f" || (echo "FAIL: $f" && exit 1)
+          done
