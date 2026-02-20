@@ -2,6 +2,7 @@
 name: hello-world
 description: Claude Code 플러그인 시스템을 소개하는 데모 에이전트. 플러그인 개요나 시스템 구조(agents, commands, hooks, MCP) 안내가 필요할 때 호출.
 model: haiku
+color: cyan
 ---
 
 # Hello World Agent
