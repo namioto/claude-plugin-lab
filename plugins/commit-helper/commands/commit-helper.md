@@ -1,6 +1,6 @@
 ---
 description: staged 변경사항을 분석하여 Conventional Commits 형식의 커밋 메시지를 생성합니다.
-allowed-tools: Bash
+allowed-tools: [Bash]
 disable-model-invocation: true
 ---
 

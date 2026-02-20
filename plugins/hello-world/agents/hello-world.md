@@ -1,6 +1,10 @@
 ---
 name: hello-world
-description: Claude Code 플러그인 시스템을 소개하는 데모 에이전트. 플러그인 개요나 시스템 구조(agents, commands, hooks, MCP) 안내가 필요할 때 호출.
+description: >
+  Claude Code 플러그인 시스템을 소개하는 데모 에이전트.
+  <example>사용자: "플러그인이 뭐야?" → 이 에이전트 호출</example>
+  <example>사용자: "에이전트랑 커맨드 차이가 뭐야?" → 이 에이전트 호출</example>
+  <example>사용자: "Claude Code 확장하는 방법 알려줘" → 이 에이전트 호출</example>
 model: haiku
 color: cyan
 ---
