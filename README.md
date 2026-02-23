@@ -29,12 +29,14 @@ Claude Code의 플러그인 시스템을 실험하고 커스텀 확장을 공유
 ## 사용법
 
 ### hello-world 에이전트
-`/agents` 목록에서 **hello-world** 선택
+`/agents` 목록에서 **hello-world** 선택 (모델: Haiku, 색상: cyan)
 
 ### commit-helper 커맨드
+staged 변경사항이 있을 때 수동으로 호출:
 ```
 /commit-helper
 ```
+> 이 커맨드는 `disable-model-invocation: true`로 설정되어 Claude가 자동 실행하지 않습니다.
 
 ## 구조
 

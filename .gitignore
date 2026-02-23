@@ -1,0 +1,7 @@
+# Agent memory - 사용자별 로컬 저장, 버전 관리 제외
+.claude/agent-memory/
+
+# Alfred 로컬 설정 - 사용자별 설정, 버전 관리 제외
+.claude/alfred.local.md
+
+nul

@@ -1,0 +1,10 @@
+---
+title: "도련님"
+atlassian_url: "https://company.atlassian.net"
+services: ["Jira Software", "Confluence", "Jira Service Management (JSM)", "Jira Product Discovery (JPD)"]
+jira_project: "PROJ"
+confluence_space: "TEAM"
+jsm_project: "IT"
+jpd_project: "PD"
+is_configured: true
+---
