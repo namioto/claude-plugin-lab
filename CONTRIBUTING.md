@@ -32,6 +32,44 @@ plugins/<plugin-name>/
 }
 ```
 
+## 에이전트 프론트매터 (agents/*.md)
+
+`name`과 `description`은 필수입니다.
+
+```yaml
+---
+name: my-agent
+description: Claude가 이 에이전트를 언제 호출해야 하는지 설명. 구체적일수록 좋음.
+model: haiku        # sonnet | opus | haiku | inherit (기본값: inherit)
+color: cyan         # UI에서 에이전트를 구분하는 배경색
+tools: Read, Bash   # 허용할 도구 목록 (생략 시 전체 상속)
+disallowedTools: Write, Edit  # 금지할 도구 목록
+permissionMode: default       # default | acceptEdits | dontAsk | bypassPermissions | plan
+maxTurns: 10        # 최대 에이전트 턴 수
+memory: user        # user | project | local (지속 메모리 범위)
+background: false   # true로 설정 시 항상 백그라운드 실행
+isolation: worktree # worktree로 설정 시 독립 git worktree에서 실행
+---
+```
+
+## 커맨드/스킬 프론트매터 (commands/*.md, skills/*/SKILL.md)
+
+```yaml
+---
+name: my-command              # 생략 시 파일명/디렉토리명 사용
+description: 이 스킬의 용도. Claude가 자동 실행 여부를 판단하는 기준.
+disable-model-invocation: true  # true: 사용자만 수동 호출 가능 (커밋·배포 등 부작용 있는 워크플로우에 필수)
+user-invocable: false           # false: / 메뉴에서 숨김 (Claude 전용 백그라운드 지식)
+allowed-tools: Bash             # 이 스킬 실행 중 허용할 도구
+argument-hint: "[issue-number]" # 자동완성에 표시되는 인자 힌트
+model: sonnet                   # 이 스킬 실행 시 사용할 모델
+context: fork                   # fork: 독립된 서브에이전트 컨텍스트에서 실행
+agent: Explore                  # context: fork 시 사용할 에이전트 타입
+---
+```
+
+> **핵심 규칙**: `/commit`, `/deploy` 등 부작용이 있는 워크플로우는 반드시 `disable-model-invocation: true`를 설정하세요. 설정하지 않으면 Claude가 상황을 판단해 자동 실행할 수 있습니다.
+
 ## 기여 절차
 
 1. 이 저장소를 Fork
@@ -43,6 +81,9 @@ plugins/<plugin-name>/
 ## PR 체크리스트
 
 - [ ] `plugin.json` 에 `name`, `description`, `version`, `author` 포함
+- [ ] 에이전트 파일에 `name`, `description` 프론트매터 포함
+- [ ] 커맨드/스킬 파일에 `description` 프론트매터 포함
+- [ ] 부작용 있는 커맨드에 `disable-model-invocation: true` 설정
 - [ ] `marketplace.json` 에 플러그인 항목 추가
 - [ ] `README.md` 에 설치 방법과 사용법 설명
 - [ ] 모든 JSON 파일 문법 검증 완료

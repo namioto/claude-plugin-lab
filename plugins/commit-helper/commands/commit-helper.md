@@ -1,3 +1,9 @@
+---
+description: staged 변경사항을 분석하여 Conventional Commits 형식의 커밋 메시지를 생성합니다.
+allowed-tools: [Bash]
+disable-model-invocation: true
+---
+
 Analyze the current git diff and staged changes, then generate a concise, meaningful commit message.
 
 Steps:
