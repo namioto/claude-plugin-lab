@@ -5,3 +5,12 @@
 .claude/alfred.local.md
 
 nul
+
+# Claude Code 프로젝트 지침 (로컬 전용)
+CLAUDE.md
+
+# 로컬 설정 파일
+.claude/settings.local.json
+
+# Windows 크래시 덤프
+*.stackdump
