@@ -1,0 +1,21 @@
+{
+  "name": "claude-plugin-lab",
+  "owner": { "name": "namioto" },
+  "metadata": {
+    "description": "Experimental Claude Code plugin lab by namioto"
+  },
+  "plugins": [
+    {
+      "name": "hello-world",
+      "source": "./plugins/hello-world",
+      "description": "최소한의 에이전트 예시 (구조 시연용)",
+      "version": "0.1.0"
+    },
+    {
+      "name": "commit-helper",
+      "source": "./plugins/commit-helper",
+      "description": "커밋 메시지 생성 커맨드",
+      "version": "0.1.0"
+    }
+  ]
+}
