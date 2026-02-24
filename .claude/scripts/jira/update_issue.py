@@ -91,15 +91,33 @@ def update_assignee(base_url, issue_key, assignee_id, auth):
     return assignee_id
 
 
+def update_priority(base_url, issue_key, priority_name, auth):
+    """우선순위 변경"""
+    url = f"{base_url}/rest/api/3/issue/{issue_key}"
+    payload = {"fields": {"priority": {"name": priority_name}}}
+    resp = requests.put(
+        url,
+        json=payload,
+        auth=auth,
+        headers={"Accept": "application/json", "Content-Type": "application/json"},
+    )
+    if not resp.ok:
+        print(f"Error {resp.status_code}: {resp.text}", file=sys.stderr)
+        sys.exit(1)
+
+    return priority_name
+
+
 def main():
     parser = argparse.ArgumentParser(description="Update Jira issue status or assignee")
     parser.add_argument("--issue", required=True, help="Issue key (e.g. DP-123)")
     parser.add_argument("--status", help="Target status name (e.g. 'In Progress', 'Done')")
     parser.add_argument("--assignee-id", help="Assignee account ID")
+    parser.add_argument("--priority", help="Priority name (e.g. 'High', 'Medium', 'Low')")
     args = parser.parse_args()
 
-    if not args.status and not args.assignee_id:
-        print("Error: at least one of --status or --assignee-id is required", file=sys.stderr)
+    if not args.status and not args.assignee_id and not args.priority:
+        print("Error: at least one of --status, --assignee-id, or --priority is required", file=sys.stderr)
         sys.exit(1)
 
     email = os.environ.get("JIRA_EMAIL")
@@ -119,6 +137,10 @@ def main():
     if args.assignee_id:
         resolved_id = update_assignee(base_url, args.issue, args.assignee_id, auth)
         result["updated"].append({"field": "assignee", "value": resolved_id})
+
+    if args.priority:
+        new_priority = update_priority(base_url, args.issue, args.priority, auth)
+        result["updated"].append({"field": "priority", "value": new_priority})
 
     print(json.dumps(result, ensure_ascii=False))
 
