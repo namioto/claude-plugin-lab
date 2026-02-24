@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 Jira 커스텀 필드 ID를 조회할 때 사용하는 스킬. 사용자가 특정 커스텀 필드('배경 설명', '원인 분석' 등)의 값을 읽거나 쓰도록 요청했을 때, 해당 필드의 ID를 이름으로 검색하여 반환한다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Get Fields

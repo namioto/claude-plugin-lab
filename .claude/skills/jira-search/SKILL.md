@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 JQL 쿼리로 Jira 티켓을 검색할 때 사용하는 스킬. 담당자 필터, 스프린트 필터, 프로젝트 필터 등 JQL 기반 검색이 필요한 모든 상황에서 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 검색 요청 시 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Search

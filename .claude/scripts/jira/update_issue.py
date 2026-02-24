@@ -58,8 +58,24 @@ def transition_issue(base_url, issue_key, target_status, auth):
     return matched["name"]
 
 
+def resolve_assignee_id(base_url, assignee_id, auth):
+    """'current' 키워드를 실제 accountId로 변환"""
+    if assignee_id.lower() != "current":
+        return assignee_id
+    resp = requests.get(
+        f"{base_url}/rest/api/3/myself",
+        auth=auth,
+        headers={"Accept": "application/json"},
+    )
+    if not resp.ok:
+        print(f"Error fetching current user {resp.status_code}: {resp.text}", file=sys.stderr)
+        sys.exit(1)
+    return resp.json()["accountId"]
+
+
 def update_assignee(base_url, issue_key, assignee_id, auth):
     """담당자 변경"""
+    assignee_id = resolve_assignee_id(base_url, assignee_id, auth)
     url = f"{base_url}/rest/api/3/issue/{issue_key}"
     payload = {"fields": {"assignee": {"accountId": assignee_id}}}
     resp = requests.put(
@@ -71,6 +87,8 @@ def update_assignee(base_url, issue_key, assignee_id, auth):
     if not resp.ok:
         print(f"Error {resp.status_code}: {resp.text}", file=sys.stderr)
         sys.exit(1)
+
+    return assignee_id
 
 
 def main():
@@ -99,8 +117,8 @@ def main():
         result["updated"].append({"field": "status", "value": new_status})
 
     if args.assignee_id:
-        update_assignee(base_url, args.issue, args.assignee_id, auth)
-        result["updated"].append({"field": "assignee", "value": args.assignee_id})
+        resolved_id = update_assignee(base_url, args.issue, args.assignee_id, auth)
+        result["updated"].append({"field": "assignee", "value": resolved_id})
 
     print(json.dumps(result, ensure_ascii=False))
 

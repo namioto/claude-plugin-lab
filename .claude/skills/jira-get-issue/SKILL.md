@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 특정 Jira 티켓의 상세 정보를 조회할 때 사용하는 스킬. 티켓 키(예: DP-123)로 단일 이슈의 전체 필드를 가져올 때 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Get Issue

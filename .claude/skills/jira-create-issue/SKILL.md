@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 새로운 Jira 티켓을 생성할 때 사용하는 스킬. ADF 형식의 description 포함 티켓 생성, 에픽 연결, 스프린트 할당이 필요한 상황에서 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Create Issue
@@ -54,7 +53,6 @@ Bash 도구로 아래 명령을 실행한다:
 ```bash
 # description 없는 경우
 uv run .claude/scripts/jira/create_issue.py \
-  --url "{url}" \
   --project "{project_key}" \
   --summary "{summary}" \
   --type "{issue_type}" \
@@ -63,7 +61,6 @@ uv run .claude/scripts/jira/create_issue.py \
 
 # description 있는 경우
 uv run .claude/scripts/jira/create_issue.py \
-  --url "{url}" \
   --project "{project_key}" \
   --summary "{summary}" \
   --type "{issue_type}" \

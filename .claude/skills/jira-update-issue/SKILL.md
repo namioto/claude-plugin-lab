@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 Jira 티켓의 상태(status)를 전환하거나 담당자(assignee)를 변경할 때 사용하는 스킬. 'In Progress로 변경', '완료 처리', '담당자 변경' 등의 요청 시 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Update Issue
@@ -26,25 +25,22 @@ Bash 도구로 아래 명령을 실행한다:
 ```bash
 # 상태만 변경
 uv run .claude/scripts/jira/update_issue.py \
-  --url "{url}" \
   --issue "{issue_key}" \
   --status "{target_status}"
 
 # 담당자만 변경
 uv run .claude/scripts/jira/update_issue.py \
-  --url "{url}" \
   --issue "{issue_key}" \
   --assignee-id "{account_id}"
 
 # 상태 + 담당자 동시 변경
 uv run .claude/scripts/jira/update_issue.py \
-  --url "{url}" \
   --issue "{issue_key}" \
   --status "{target_status}" \
   --assignee-id "{account_id}"
 ```
 
-- `JIRA_EMAIL`, `JIRA_API_KEY` 환경변수가 설정되어 있어야 한다
+- `JIRA_EMAIL`, `JIRA_API_KEY`, `ATLASSIAN_URL` 환경변수가 설정되어 있어야 한다
 
 ## 상태 전환 내부 동작
 

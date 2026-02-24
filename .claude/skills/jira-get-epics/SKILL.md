@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 특정 프로젝트의 에픽 목록을 조회할 때 사용하는 스킬. 티켓 생성 전 에픽 연결이 필요하거나, MEMORY.md 에픽 캐시를 채워야 할 때 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Get Epics

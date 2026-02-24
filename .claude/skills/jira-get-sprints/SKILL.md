@@ -1,7 +1,6 @@
 ---
 description: "alfred-jira 에이전트가 특정 프로젝트의 보드 및 스프린트 정보를 조회할 때 사용하는 스킬. 활성 스프린트 ID 확인, MEMORY.md 보드/스프린트 캐시 갱신이 필요할 때 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
 user-invocable: false
-context: fork
 ---
 
 # Jira Get Sprints
