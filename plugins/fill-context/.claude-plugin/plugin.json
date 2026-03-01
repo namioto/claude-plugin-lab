@@ -1,0 +1,5 @@
+{
+  "name": "fill-context",
+  "description": "Analyze user requests and ask follow-up questions to fill in missing context before proceeding.",
+  "version": "0.1.0"
+}
