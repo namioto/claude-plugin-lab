@@ -64,16 +64,43 @@ new areas that need clarification. Keep asking until:
 
 ### 3. Questioning Rules
 
-- Ask one focused question at a time via direct text, not `AskUserQuestion`
-  — this is a conversation, not a form
-- Each question should build on the previous answer, digging deeper
+- Use `AskUserQuestion` to ask multiple related questions in one round
+  (max 4 questions per round). Group questions from the same probe round together.
+- Each question should build on previous answers, digging deeper
 - Rephrase vague answers back to the user for confirmation:
   "~라는 말씀이신가요?" / "구체적으로 어떤 상황인지 예시를 들어주실 수 있나요?"
 - Do NOT ask about operational details (assignee, priority, sprint)
   — those are decisions, not context
 - Match the language the user is communicating in
 
-### 4. Compile the Result
+### 4. Clarify Jargon and Proper Nouns
+
+When the user mentions project names, system names, abbreviations, or
+internal terms (e.g., "dp-admin", "auth-gateway"), ask whether:
+
+- The term should be used as-is (audience already knows it)
+- A brief explanation should be added so others can understand
+
+This ensures the final output is readable by its intended audience,
+not just the person who made the request.
+
+### 5. Share Progress Between Rounds
+
+After every 2-3 rounds of questions, present a running summary of what
+has been gathered so far. Format as a concise bullet list:
+
+```
+지금까지 정리된 내용:
+- **배경**: ...
+- **문제**: ...
+- **목표**: ...
+```
+
+Ask the user to confirm, correct, or add to the summary before continuing
+with the next round. This prevents misunderstandings from accumulating
+and gives the user a sense of progress.
+
+### 6. Compile the Result
 
 After the user signals completion, compile all gathered information into
 a structured summary:
