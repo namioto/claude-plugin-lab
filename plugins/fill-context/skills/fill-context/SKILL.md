@@ -84,21 +84,25 @@ internal terms (e.g., "dp-admin", "auth-gateway"), ask whether:
 This ensures the final output is readable by its intended audience,
 not just the person who made the request.
 
-### 5. Share Progress Between Rounds
+### 5. Summarize-Then-Continue Loop
 
-After every 2-3 rounds of questions, present a running summary of what
-has been gathered so far. Format as a concise bullet list:
+After each round of `AskUserQuestion`, follow this cycle:
 
-```
-지금까지 정리된 내용:
-- **배경**: ...
-- **문제**: ...
-- **목표**: ...
-```
+1. **Summarize**: Present a running summary of everything gathered so far
+   as a concise bullet list:
+   ```
+   지금까지 정리된 내용:
+   - **배경**: ...
+   - **문제**: ...
+   - **목표**: ...
+   ```
+2. **Ask to continue**: Ask the user whether to keep probing or stop.
+   - "더 채울 내용이 있을까요, 아니면 이 정도면 충분한가요?"
+3. **If continue**: Proceed to the next `AskUserQuestion` round,
+   building on the answers so far.
+4. **If stop**: Move to step 6 (Compile the Result).
 
-Ask the user to confirm, correct, or add to the summary before continuing
-with the next round. This prevents misunderstandings from accumulating
-and gives the user a sense of progress.
+This ensures the user stays in control of depth and can stop at any point.
 
 ### 6. Compile the Result
 
