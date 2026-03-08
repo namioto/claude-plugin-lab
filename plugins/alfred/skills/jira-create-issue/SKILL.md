@@ -15,7 +15,7 @@ ADF JSON description을 포함한 새 Jira 티켓을 생성한다.
 [CONFIG]
 project: {프로젝트 키, 예: DP}
 summary: {티켓 제목}
-type: {이슈 타입: Story | Task | Bug | Sub-task 등}
+type: {이슈 타입 — `jira-get-project-meta` 캐시에서 프로젝트별 유효한 타입 확인}
 description_markdown: {선택사항: 마크다운 형식 본문}
 epic_key: {선택사항: 에픽 키, 예: DP-10}
 sprint_id: {선택사항: 스프린트 ID}

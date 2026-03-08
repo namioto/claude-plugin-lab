@@ -14,3 +14,6 @@ CLAUDE.md
 
 # Windows 크래시 덤프
 *.stackdump
+
+# Jira 메타데이터 캐시
+plugins/alfred/scripts/jira/.cache/
