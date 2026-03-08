@@ -21,7 +21,7 @@ project: {프로젝트 키, 예: DP}
 Bash 도구로 아래 명령을 실행한다:
 
 ```bash
-uv run .claude/scripts/jira/get_epics.py \
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/get_epics.py \
   --project "{project_key}"
 ```
 

@@ -23,14 +23,14 @@ max_results: {선택사항: 최대 결과 수, 기본값 50}
 Bash 도구로 아래 명령을 실행한다:
 
 ```bash
-uv run .claude/scripts/jira/search.py \
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/search.py \
   --jql "{jql}" \
   [--fields "{fields}"] \
   [--max-results {max_results}]
 ```
 
 - `JIRA_EMAIL`, `JIRA_API_KEY`, `ATLASSIAN_URL` 환경변수가 설정되어 있어야 한다
-- `uv`가 설치되어 있지 않으면 `pip install requests` 후 `python .claude/scripts/jira/search.py`로 실행한다
+- `uv`가 설치되어 있지 않으면 `pip install requests` 후 `python ${CLAUDE_PLUGIN_ROOT}/scripts/jira/search.py`로 실행한다
 
 ## 출력 형식
 

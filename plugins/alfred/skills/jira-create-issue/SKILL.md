@@ -52,7 +52,7 @@ Bash 도구로 아래 명령을 실행한다:
 
 ```bash
 # description 없는 경우
-uv run .claude/scripts/jira/create_issue.py \
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/create_issue.py \
   --project "{project_key}" \
   --summary "{summary}" \
   --type "{issue_type}" \
@@ -60,7 +60,7 @@ uv run .claude/scripts/jira/create_issue.py \
   [--sprint-id {sprint_id}]
 
 # description 있는 경우
-uv run .claude/scripts/jira/create_issue.py \
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/create_issue.py \
   --project "{project_key}" \
   --summary "{summary}" \
   --type "{issue_type}" \

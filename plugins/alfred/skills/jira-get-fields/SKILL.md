@@ -20,10 +20,10 @@ Bash 도구로 아래 명령을 실행한다:
 
 ```bash
 # 이름으로 검색
-uv run .claude/scripts/jira/get_fields.py --search "배경 설명"
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/get_fields.py --search "배경 설명"
 
 # 전체 목록 반환
-uv run .claude/scripts/jira/get_fields.py
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/get_fields.py
 ```
 
 - `JIRA_EMAIL`, `JIRA_API_KEY`, `ATLASSIAN_URL` 환경변수가 설정되어 있어야 한다

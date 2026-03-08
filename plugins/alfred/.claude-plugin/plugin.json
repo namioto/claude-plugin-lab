@@ -1,0 +1,6 @@
+{
+  "name": "alfred",
+  "description": "Atlassian 서비스(Jira, Confluence, JSM, JPD) 기반 지능형 업무 비서 에이전트",
+  "version": "1.0.0",
+  "author": { "name": "namioto" }
+}

@@ -21,7 +21,7 @@ issue: {이슈 키, 예: DP-123}
 Bash 도구로 아래 명령을 실행한다:
 
 ```bash
-uv run .claude/scripts/jira/get_issue.py \
+uv run ${CLAUDE_PLUGIN_ROOT}/scripts/jira/get_issue.py \
   --issue "{issue_key}"
 ```
 
