@@ -1,5 +1,5 @@
 ---
-description: "alfred-jira 에이전트가 특정 프로젝트의 에픽 목록을 조회할 때 사용하는 스킬. 티켓 생성 전 에픽 연결이 필요하거나, MEMORY.md 에픽 캐시를 채워야 할 때 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
+description: "alfred 에이전트가 Jira 작업 시 특정 프로젝트의 에픽 목록을 조회할 때 사용하는 스킬. 티켓 생성 전 에픽 연결이 필요하거나, MEMORY.md 에픽 캐시를 채워야 할 때 호출된다. 사용자가 직접 호출하지 않으며, alfred 에이전트가 jira 스킬을 통해 호출한다."
 user-invocable: false
 ---
 
@@ -49,7 +49,7 @@ uv run .claude/scripts/jira/get_epics.py \
 
 ## MEMORY.md 캐시 갱신 연계
 
-반환된 에픽 목록을 alfred-jira MEMORY.md의 에픽 섹션에 다음 형식으로 기록한다:
+반환된 에픽 목록을 MEMORY.md의 에픽 섹션에 다음 형식으로 기록한다:
 
 ```markdown
 ## 에픽 목록 ({project_key})
@@ -63,4 +63,4 @@ uv run .claude/scripts/jira/get_epics.py \
 ## 오류 처리
 
 - 프로젝트가 존재하지 않으면 400/404 오류가 반환된다
-- 오류 발생 시 stderr 메시지를 alfred-jira에 그대로 전달한다
+- 오류 발생 시 stderr 메시지를 그대로 전달한다

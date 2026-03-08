@@ -1,5 +1,5 @@
 ---
-description: "Jira, Confluence, JSM, JPD 서브에이전트가 이슈 생성/수정, 페이지 작성, 댓글, 요청 본문 등 ADF 필드를 포함한 write 작업을 수행하기 전에 반드시 사용해야 하는 스킬. 마크다운 형식 입력을 유효한 ADF JSON으로 변환해 반환한다. 사용자가 직접 호출하지 않으며, 서비스 서브에이전트가 write 요청 시 위임하여 호출한다."
+description: "Jira, Confluence, JSM, JPD 스킬이 이슈 생성/수정, 페이지 작성, 댓글, 요청 본문 등 ADF 필드를 포함한 write 작업을 수행하기 전에 반드시 사용해야 하는 스킬. 마크다운 형식 입력을 유효한 ADF JSON으로 변환해 반환한다. 사용자가 직접 호출하지 않으며, 서비스 스킬이 write 요청 시 호출한다."
 user-invocable: false
 context: fork
 ---

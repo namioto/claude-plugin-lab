@@ -1,5 +1,5 @@
 ---
-description: "alfred-jira 에이전트가 특정 Jira 티켓의 상세 정보를 조회할 때 사용하는 스킬. 티켓 키(예: DP-123)로 단일 이슈의 전체 필드를 가져올 때 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
+description: "alfred 에이전트가 Jira 작업 시 특정 Jira 티켓의 상세 정보를 조회할 때 사용하는 스킬. 티켓 키(예: DP-123)로 단일 이슈의 전체 필드를 가져올 때 호출된다. 사용자가 직접 호출하지 않으며, alfred 에이전트가 직접 또는 jira 스킬을 통해 호출한다."
 user-invocable: false
 ---
 
@@ -51,4 +51,4 @@ uv run .claude/scripts/jira/get_issue.py \
 ## 오류 처리
 
 - 존재하지 않는 키 조회 시 404 오류가 반환된다
-- 오류 발생 시 stderr 메시지를 alfred-jira에 그대로 전달한다
+- 오류 발생 시 stderr 메시지를 그대로 전달한다

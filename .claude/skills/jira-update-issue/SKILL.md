@@ -1,5 +1,5 @@
 ---
-description: "alfred-jira 에이전트가 Jira 티켓의 상태(status)를 전환하거나 담당자(assignee)를 변경할 때 사용하는 스킬. 'In Progress로 변경', '완료 처리', '담당자 변경' 등의 요청 시 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
+description: "alfred 에이전트가 Jira 작업 시 Jira 티켓의 상태(status)를 전환하거나 담당자(assignee)를 변경할 때 사용하는 스킬. 'In Progress로 변경', '완료 처리', '담당자 변경' 등의 요청 시 호출된다. 사용자가 직접 호출하지 않으며, alfred 에이전트가 jira 스킬을 통해 호출한다."
 user-invocable: false
 ---
 
@@ -70,4 +70,4 @@ uv run .claude/scripts/jira/update_issue.py \
 - 목표 상태로의 전환이 현재 워크플로에서 허용되지 않을 수 있다
   - 예: "Backlog → Done" 직접 전환 불가 → 에러 메시지에 가능한 상태 목록 포함
 - 잘못된 `assignee_id`는 400 오류를 반환한다
-- 오류 발생 시 stderr 메시지를 alfred-jira에 그대로 전달한다
+- 오류 발생 시 stderr 메시지를 그대로 전달한다

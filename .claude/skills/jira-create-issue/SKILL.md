@@ -1,5 +1,5 @@
 ---
-description: "alfred-jira 에이전트가 새로운 Jira 티켓을 생성할 때 사용하는 스킬. ADF 형식의 description 포함 티켓 생성, 에픽 연결, 스프린트 할당이 필요한 상황에서 호출된다. 사용자가 직접 호출하지 않으며, alfred-jira 에이전트가 위임하여 호출한다."
+description: "alfred 에이전트가 Jira 작업 시 새로운 Jira 티켓을 생성할 때 사용하는 스킬. ADF 형식의 description 포함 티켓 생성, 에픽 연결, 스프린트 할당이 필요한 상황에서 호출된다. 사용자가 직접 호출하지 않으며, alfred 에이전트가 jira 스킬을 통해 호출한다."
 user-invocable: false
 ---
 
@@ -95,7 +95,7 @@ rm -f /tmp/jira-desc-*.json
 
 ## 결과 보고 형식
 
-alfred-jira는 생성 완료 후 다음 형식으로 보고한다:
+생성 완료 후 다음 형식으로 보고한다:
 
 ```
 생성 완료: DP-125 - {제목}
@@ -106,4 +106,4 @@ URL: {atlassian_url}/browse/DP-125
 
 - 존재하지 않는 이슈 타입 지정 시 400 오류가 반환된다
 - 에픽 키가 잘못된 경우에도 400 오류가 반환된다
-- 오류 발생 시 임시 파일을 먼저 정리한 뒤 stderr 메시지를 alfred-jira에 전달한다
+- 오류 발생 시 임시 파일을 먼저 정리한 뒤 stderr 메시지를 전달한다
